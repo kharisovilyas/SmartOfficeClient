@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/fragment_welcome.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#877DF0">
+
+    <ImageView
+        android:layout_width="193dp"
+        android:layout_height="187dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Smart Office"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Работа - наш второй дом"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:text="Войти"
+        android:id="@+id/login_start"
+        app:backgroundTint="@color/auth_button_color"
+        app:cornerRadius="64dp"
+        android:textSize="16sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_margin="10dp"
+        app:icon="@drawable/ic_right"
+        app:iconGravity="end"
+        app:iconSize="38dp"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:text="Регистрирация"
+        android:backgroundTint="#00ffffff"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/white"
+        app:cornerRadius="64dp"
+        android:textColor="@color/white"
+        android:id="@+id/register_start"
+        android:textSize="16sp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_margin="10dp"
+        app:icon="@drawable/ic_right"
+        app:iconGravity="end"
+        app:iconSize="38dp"
+        />
+</LinearLayout>
