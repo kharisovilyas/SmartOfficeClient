@@ -13,4 +13,21 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="FullScreenDialogTheme" parent="Theme.MaterialComponents.DialogWhenLarge">
+        <item name="windowNoTitle">true</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:windowAnimationStyle">@style/Animation.AppCompat.Dialog</item>
+    </style>
+    <style name="DatePicker">
+        <item name="android:background">@color/purple_200</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <!-- Для светлой темы -->
+    <style name="LightTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/black</item>
+        <item name="boxStrokeColor">@color/black</item>
+        <!-- Добавьте другие атрибуты, если необходимо -->
+    </style>
 </resources>

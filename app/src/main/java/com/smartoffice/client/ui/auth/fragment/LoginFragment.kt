@@ -1,4 +1,4 @@
-package com.smartoffice.client.ui.auth
+package com.smartoffice.client.ui.auth.fragment
 
 import androidx.fragment.app.Fragment
 

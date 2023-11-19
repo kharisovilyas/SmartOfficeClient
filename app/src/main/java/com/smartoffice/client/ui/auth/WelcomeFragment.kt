@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.smartoffice.client.R
 import com.smartoffice.client.databinding.WelcomeFragmentBinding
+import com.smartoffice.client.ui.auth.fragment.LoginFragment
+import com.smartoffice.client.ui.auth.fragment.RegisterFragment
 
 class WelcomeFragment : Fragment() {
     private lateinit var binding: WelcomeFragmentBinding

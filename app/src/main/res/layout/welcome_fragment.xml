@@ -39,11 +39,11 @@
         android:layout_marginBottom="24dp" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="256dp"
+        android:layout_width="match_parent"
         android:layout_height="64dp"
         android:text="Войти"
         android:id="@+id/login_start"
-        app:backgroundTint="@color/auth_button_color"
+        app:backgroundTint="@color/primary_color"
         app:cornerRadius="64dp"
         android:textSize="16sp"
         android:paddingStart="20dp"
@@ -54,11 +54,11 @@
         app:iconSize="38dp"
         />
     <com.google.android.material.button.MaterialButton
-        android:layout_width="256dp"
+        android:layout_width="match_parent"
         android:layout_height="64dp"
         android:text="Регистрирация"
         android:backgroundTint="#00ffffff"
-        app:strokeWidth="4dp"
+        app:strokeWidth="2dp"
         app:strokeColor="@color/white"
         app:cornerRadius="64dp"
         android:textColor="@color/white"
