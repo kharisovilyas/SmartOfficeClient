@@ -1,13 +1,18 @@
-package com.smartoffice.client.ui.auth.fragment
+package com.smartoffice.client.ui.auth.fragment.auth
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.smartoffice.client.R
 import com.smartoffice.client.api.model.RegisterUserData
 import com.smartoffice.client.databinding.RegisterFragmentBinding
 import com.smartoffice.client.ui.auth.dialog.InputUserDataDialog
+import com.smartoffice.client.ui.auth.fragment.home.HomeFragment
+import com.smartoffice.client.ui.auth.viewmodel.RegisterViewModel
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: RegisterFragmentBinding
@@ -19,8 +24,31 @@ class RegisterFragment : Fragment() {
         binding = RegisterFragmentBinding.inflate(inflater, container, false)
         binding.registerStart.setOnClickListener {
             checkingInputAndStartDialog()
+            observeDataForQuitFragment()
         }
         return binding.root
+    }
+
+    private fun observeDataForQuitFragment() {
+        val viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
+        viewModel.registrationResult.observe(viewLifecycleOwner) { registrationResult ->
+            if (registrationResult) {
+                quitFragment()
+            } else {
+                println(registrationResult)
+            }
+
+        }
+    }
+
+    @SuppressLint("CommitTransaction")
+    private fun quitFragment() {
+        requireActivity()
+            .supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container_auth, HomeFragment())
+            .addToBackStack("NO")
+            .commit()
     }
 
     private fun checkingInputAndStartDialog() {

@@ -1,6 +1,7 @@
 package com.smartoffice.client.ui.auth.dialog
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -118,15 +119,29 @@ class InputUserDataDialog(
             // Все поля заполнены, вызовите метод регистрации
             viewModel.registerUser(
                 RegisterUserRequest(
-                    email=email,
-                    password=password,
+                    email = email,
+                    password = password,
                     firstName = name,
                     surname = surname,
                     patronymic = patronymic,
                     birthday = birthDate,
-                    company=company
+                    companyName = company
                 )
             )
+            viewModel.registrationResult.observe(this) { registrationResult ->
+                if (registrationResult) {
+                    saveAuthenticationStatus(registrationResult)
+                    dismiss()
+                } else {
+                    //выводить Alert Dialog
+                }
+            }
         }
+    }
+    private fun saveAuthenticationStatus(registerResult: Boolean) {
+        val sharedPreferences = requireActivity().getSharedPreferences("auth", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isAuthenticated", registerResult)
+        editor.apply()
     }
 }

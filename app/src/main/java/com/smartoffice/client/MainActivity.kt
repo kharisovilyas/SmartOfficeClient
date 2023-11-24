@@ -1,5 +1,6 @@
 package com.smartoffice.client
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,8 +13,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val intent = Intent(this, AuthenticationActivity::class.java)
-        startActivity(intent)
-        setContentView(binding.root)
+
+        // Проверяем, была ли выполнена аутентификация
+        if (isUserAuthenticated()) {
+            // Если аутентификация выполнена, открываем MainActivity
+            setContentView(binding.root)
+        } else {
+            // Если аутентификация не выполнена, открываем AuthenticationActivity
+            val intent = Intent(this, AuthenticationActivity::class.java)
+            startActivity(intent)
+            finish() // Завершаем текущую активность, чтобы пользователь не мог вернуться назад
+        }
+    }
+
+    private fun isUserAuthenticated(): Boolean {
+        val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+        return sharedPreferences.getBoolean("isAuthenticated", false)
     }
 }

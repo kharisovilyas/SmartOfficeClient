@@ -12,7 +12,7 @@ data class RegisterUserRequest(
     val surname: String,
     val patronymic: String,
     val birthday: String,
-    val company: String,
+    val companyName: String,
 )
 
 data class RegisterResponse(
