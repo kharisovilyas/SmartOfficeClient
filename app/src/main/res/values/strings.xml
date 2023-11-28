@@ -10,4 +10,10 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="BASE_URL">http://localhost:8082</string>
+    <string name="history_entry">История посещений</string>
+    <string name="calendar_name">Календарь</string>
+    <string name="profile_name">Мой профиль</string>
+    <string name="main_name">Главная</string>
+    <string name="updateTempText">Температура</string>
+    <string name="chatName">Чат с администрацией</string>
 </resources>

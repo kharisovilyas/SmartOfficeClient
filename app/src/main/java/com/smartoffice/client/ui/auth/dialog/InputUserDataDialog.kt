@@ -1,5 +1,6 @@
 package com.smartoffice.client.ui.auth.dialog
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
@@ -7,13 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.smartoffice.client.R
-import com.smartoffice.client.api.model.RegisterUserData
-import com.smartoffice.client.api.model.RegisterUserRequest
+import com.smartoffice.client.api.model.user.RegisterUserData
+import com.smartoffice.client.api.model.user.RegisterUserRequest
 import com.smartoffice.client.databinding.InputUserDataDialogBinding
 import com.smartoffice.client.ui.auth.viewmodel.RegisterViewModel
+import com.smartoffice.client.ui.main_ui.MainFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -132,12 +135,23 @@ class InputUserDataDialog(
                 if (registrationResult) {
                     saveAuthenticationStatus(registrationResult)
                     dismiss()
+                    quitFragment()
                 } else {
                     //выводить Alert Dialog
                 }
             }
         }
     }
+
+    @SuppressLint("CommitTransaction")
+    fun quitFragment() {
+        requireActivity()
+            .supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container_auth, MainFragment())
+            .commit()
+    }
+
     private fun saveAuthenticationStatus(registerResult: Boolean) {
         val sharedPreferences = requireActivity().getSharedPreferences("auth", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

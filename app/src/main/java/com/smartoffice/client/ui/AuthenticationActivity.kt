@@ -2,10 +2,9 @@ package com.smartoffice.client.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
 import com.smartoffice.client.R
 import com.smartoffice.client.databinding.ActivityAuthenticationBinding
-import com.smartoffice.client.ui.auth.WelcomeFragment
+import com.smartoffice.client.ui.auth.fragment.WelcomeFragment
 
 class AuthenticationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthenticationBinding

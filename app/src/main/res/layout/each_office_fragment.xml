@@ -1,0 +1,107 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="380dp"
+        android:layout_height="380dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rounded_background1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:scaleType="centerCrop"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background">
+
+        <ImageView
+            android:id="@+id/centerImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Кнопки наверху в LinearLayout -->
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button1"
+            style="@style/BeautifulButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Температура" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/BeautifulButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Свет" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            style="@style/BeautifulButtonStyle"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Звонки" />
+    </LinearLayout>
+
+    <!-- Кнопки внизу в LinearLayout -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            style="@style/BeautifulButtonStyle"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Бронь" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="0dp"
+            style="@style/BeautifulButtonStyle"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Заказ Еды" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="0dp"
+            style="@style/BeautifulButtonStyle"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Расписание" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

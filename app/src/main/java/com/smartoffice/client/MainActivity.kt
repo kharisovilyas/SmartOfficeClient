@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.smartoffice.client.databinding.ActivityMainBinding
 import com.smartoffice.client.ui.AuthenticationActivity
+import com.smartoffice.client.ui.main_ui.MainFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -17,6 +18,11 @@ class MainActivity : AppCompatActivity() {
         // Проверяем, была ли выполнена аутентификация
         if (isUserAuthenticated()) {
             // Если аутентификация выполнена, открываем MainActivity
+            if (savedInstanceState == null) {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, MainFragment())
+                    .commit()
+            }
             setContentView(binding.root)
         } else {
             // Если аутентификация не выполнена, открываем AuthenticationActivity

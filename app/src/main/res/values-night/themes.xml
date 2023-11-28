@@ -29,4 +29,14 @@
         <item name="boxStrokeColor">@color/white</item>
         <!-- Добавьте другие атрибуты, если необходимо -->
     </style>
+
+    <style name="BeautifulButtonStyle">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/custom_button_background</item>
+        <item name="android:padding">8dp</item>
+        <!-- Добавьте другие атрибуты стиля, которые вам необходимы -->
+    </style>
 </resources>

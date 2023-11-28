@@ -3,18 +3,13 @@ package com.smartoffice.client.ui.auth.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.smartoffice.client.api.callback.RegisterCallback
+import com.smartoffice.client.api.callback.auth.RegisterCallback
 import com.smartoffice.client.api.client.RetrofitClient
-import com.smartoffice.client.api.model.RegisterResponse
-import com.smartoffice.client.api.model.RegisterUserData
-import com.smartoffice.client.api.model.RegisterUserRequest
-import com.smartoffice.client.api.service.ApiService
-import com.smartoffice.client.ui.auth.dialog.InputUserDataDialog
+import com.smartoffice.client.api.model.user.RegisterResponse
+import com.smartoffice.client.api.model.user.RegisterUserRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
-import java.util.*
 
 class RegisterViewModel : ViewModel() {
 
@@ -46,8 +41,13 @@ class RegisterViewModel : ViewModel() {
 
                 override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                     _registrationResult.value = false
+                    println(t)
                 }
             })
+    }
+
+    private fun handleRegistrationResult(result: Boolean) {
+        _registrationResult.value = result
     }
 
     fun setRegisterCallback(callback: RegisterCallback) {
